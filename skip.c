@@ -22,28 +22,38 @@ int main(int argc, char** argv)
 		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
 		);
 
-	do
+	while(1)
 	{
-		c=getchar();
-
-		if(c==*begin)
+		if((c=getchar())==begin[0])
 		{
-			buf[0]=c;
-
-			for(i=1; begin[i]==(c=getchar()); i++)
+			for(i=0; begin[i]==c&&i<=strlen(begin); i++)
+			{
 				buf[i]=c;
-			buf[i]='\0';
-			ungetc(c, stdin);
+				c=getchar();
 
+			}
+			ungetc(c, stdin);
 			if(i==strlen(begin))
-				waitfor(end);
+			{
+				if(waitfor(end))
+					continue;
+				else
+					break;
+			}
 			else
-				printf(buf);
-			continue;
+			{
+				buf[i]='\0';
+				printf("%s", buf);
+				continue;
+			}
+
 		}
-		if(c!=EOF)
+
+		if(c==EOF)
+			break;
+		else
 			putchar(c);
-	}while(c!=EOF);
+	}
 
 	free(buf);
 
@@ -52,15 +62,19 @@ int main(int argc, char** argv)
 
 int waitfor(char* end)
 {
-	unsigned int i;
+	unsigned int i=0;
 	char c;
 
-	while(1)
+	while(i!=strlen(end))
 	{
-		for(i=0; end[i]==(c=getchar()); i++);
-		if(i>=1)
-			ungetc(c, stdin);
-		if(i==strlen(end))
-			return 1;
+		c=getchar();
+
+		if(c==EOF)
+			return 0;
+		if(end[i]==c)
+			i++;
+		else
+			i=0;
 	}
+	return 1;
 }
