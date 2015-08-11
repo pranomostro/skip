@@ -22,6 +22,12 @@ int main(int argc, char** argv)
 		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
 		);
 
+	if(buf==NULL)
+	{
+		fprintf(stderr, "error: no random access memory left, exiting.\n");
+		exit(2);
+	}
+
 	while(1)
 	{
 		if((c=getchar())==begin[0])
