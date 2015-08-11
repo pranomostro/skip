@@ -1,0 +1,29 @@
+.TH SKIP 1
+.SH NAME
+\fBskip\fR \- skip text between two strings
+
+.SH SYNOPSIS
+\fBskip\fR BEGIN END
+
+.SH DESCRIPTION
+\fBskip\fR is a filter that skips the parts of the input text between
+BEGIN and END. It reads standard input and writes the standard output
+and does not regard newlines. When finding the end of a file, it
+stops, even if the current position is after a BEGIN.
+.P
+skip does not buffer it's input, it is comparable to tr(1) in this
+regard.
+
+.SH EXAMPLE
+\fBskip '<script' '</script'\fR prints the contents of a web-page
+without the javascript.
+
+.SH STATUS
+0 on success and 1 when it prints the help message.
+
+.SH BUGS
+While waiting for END, skip needs a newline before the end of a file.
+This should be fixed immediately.
+
+.SH AUTHOR
+a.regenfuss@gmx.de
