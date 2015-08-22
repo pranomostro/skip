@@ -6,7 +6,7 @@ int waitfor(char* end);
 
 int main(int argc, char** argv)
 {
-	char c;
+	int c;
 	unsigned int i;
 
 	if(argc!=3)
@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 int waitfor(char* end)
 {
 	unsigned int i=0;
-	char c;
+	int c;
 
 	while(i!=strlen(end))
 	{
