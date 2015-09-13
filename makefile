@@ -1,23 +1,26 @@
+#Makefile for the skip program.
+
 PREFIX = /usr/local
 TARGET = skip
-SRC = ${TARGET}.c
 
 CC = gcc
-CFLAGS = -Wall -W -Wextra -O3 -fexpensive-optimizations\
--funroll-loops -fno-builtin -s -std=c89
-LIBS = -lm
+CFLAGS = -Wall -std=c99 -pedantic
+LIBS =
 
 all: ${TARGET}
 
-${TARGET}: ${SRC}
-	${CC} ${CFLAGS} ${SRC} ${LIBS} -o ${TARGET}
+${TARGET}: ${TARGET}.c
+	${CC} ${CFLAGS} ${TARGET}.c ${LIBS} -o ${TARGET}
 
 clean:
-	rm -f ${TARGET}
+	rm -rf ${TARGET}
 
 install: all
+	mkdir -p ${PREFIX}/bin ${PREFIX}/share/man/man1
 	cp ${TARGET} ${PREFIX}/bin
 	cp ${TARGET}.1 ${PREFIX}/share/man/man1
+	chmod 755 ${PREFIX}/bin/${TARGET}
+	chmod 644 ${PREFIX}/share/man/man1/${TARGET}.1
 
 uninstall:
 	rm -f ${PREFIX}/bin/${TARGET}
