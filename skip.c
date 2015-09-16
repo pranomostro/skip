@@ -6,7 +6,7 @@ int waitfor(char* end);
 
 int main(int argc, char** argv)
 {
-	int c;
+	char c;
 	unsigned int i;
 
 	if(argc!=3)
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 
 		}
 
-		if(c==EOF)
+		if(feof(stdin))
 			break;
 		else
 			putchar(c);
@@ -69,13 +69,13 @@ int main(int argc, char** argv)
 int waitfor(char* end)
 {
 	unsigned int i=0;
-	int c;
+	char c;
 
 	while(i!=strlen(end))
 	{
 		c=getchar();
 
-		if(c==EOF)
+		if(feof(stdin))
 			return 0;
 		if(end[i]==c)
 			i++;
