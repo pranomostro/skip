@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
 	if(argc!=3)
 	{
-		fprintf(stderr, "error: skip BEGIN END expected, exiting.\n");
+		fprintf(stderr, "skip BEGIN END\n");
 		exit(1);
 	}
 
