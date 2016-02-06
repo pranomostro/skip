@@ -1,14 +1,13 @@
-A mixture of tr and sed, incomplete
-===================================
+Skip text between two strings
+=============================
 
 This project was developed when I wanted a
 fast way to remove Javascript from webpages
-(for [mkdict](www.github.com/scharlatan/mkdict])
+(for [mkdict](www.github.com/scharlatan/mkdict))
 without having to write some dirty and specialised.
 So I ended up writing something dirty.
 
-skip is sort of a mixture of tr and sed.
-It simply skips the text between two strings
+skip simply skips the text between two strings
 of it's standard input.
 
 skip is neither line-agnostic, nor capable of handling
