@@ -14,13 +14,15 @@ stops, even if the current position is after a BEGIN.
 .SH EXAMPLES
 .TP
 .B skip '<' '>'
+.TP
 strip the html from the input. Hopefully.
 .TP
 .B skip '<script' '</script>'
+.TP
 prints the contents of a web-page without the javascript.
 
 .SH STATUS
-0 on success and 1 when it prints the help message.
+0 on success and 1 when it prints the usage.
 
 .SH BUGS
 skip could be a lot more general in what it does. there are plans for another
