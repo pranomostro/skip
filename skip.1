@@ -11,7 +11,10 @@ BEGIN and END. It reads standard input and writes the standard output
 and does not regard newlines. When finding the end of a file, it
 stops, even if the current position is after a BEGIN.
 
-.SH EXAMPLE
+.SH EXAMPLES
+.TP
+.B skip '<' '>'
+strip the html from the input. Hopefully.
 .TP
 .B skip '<script' '</script>'
 prints the contents of a web-page without the javascript.
