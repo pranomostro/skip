@@ -3,7 +3,7 @@ Skip text between two strings
 
 This project was developed when I wanted a
 fast way to remove Javascript from webpages
-(for [mkdict](https://www.github.com/scharlatan/mkdict))
+(for [mkdict](https://www.github.com/pranomostro/mkdict))
 without having to write some dirty and specialised.
 So I ended up writing something dirty.
 
