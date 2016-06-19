@@ -12,13 +12,19 @@ and does not regard newlines. When finding the end of a file, it
 stops, even if the current position is after a BEGIN.
 
 .SH EXAMPLES
-.TP
-.B skip '<' '>'
-.TP
-strip the html from the input. Hopefully.
-.TP
-.B skip '<script' '</script>'
-.TP
+.PP
+.fi
+.RS
+$ skip '<' '>'
+.RE
+.fi
+strips html from the input. Hopefully.
+.PP
+.fi
+.RS
+$ skip '<script' '</script>'
+.RE
+.fi
 prints the contents of a web-page without the javascript.
 
 .SH STATUS
