@@ -28,4 +28,4 @@ is enough.
 License
 -------
 
-Look at the file COPYING.
+Look at the file LICENSE.
