@@ -1,31 +1,23 @@
 Skip text between two strings
 =============================
 
-This project was developed when I wanted a
-fast way to remove Javascript from webpages
-(for [mkdict](https://www.github.com/pranomostro/mkdict))
-without having to write some dirty and specialised.
-So I ended up writing something dirty.
+skip removes all of its input that is enclosed by
+its two arguments. Example:
 
-skip simply skips the text between two strings
-of it's standard input.
+	$ echo '/* comment */ int main(void) { puts("hello world!"); /* print */ return 0; }' | skip '/*' '*/'
+	 int main(void) { puts("hello world!");  return 0; }
 
-skip is neither line-agnostic, nor capable of handling
-regular expressions, nor flexible or (gasp!) programmable.
-Take a look at the manpage.
+skip is neither line-agnostic, nor capable of handling regular
+expressions, nor flexible or programmable.
 
 Installation
 ------------
 
-I assume you have everything you need
-for compiling and installing this project (make and a c compiler).
-Then
+Run
 
 	make install
 
-is enough.
-
 License
--------
+=======
 
-Look at the file LICENSE.
+[MIT/X11 license](./LICENSE).
