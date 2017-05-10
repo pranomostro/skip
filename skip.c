@@ -8,6 +8,7 @@ int main(int argc, char** argv)
 {
 	char c;
 	unsigned int i;
+	char* begin, * end, * buf;
 
 	if(argc!=3)
 	{
@@ -15,12 +16,11 @@ int main(int argc, char** argv)
 		exit(1);
 	}
 
-	char* begin=argv[1];
-	char* end=argv[2];
+	begin=argv[1];
+	end=argv[2];
 
-	char* buf=(char*) malloc(sizeof(char)*
-		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
-		);
+	buf=(char*) malloc(sizeof(char)*
+		(strlen(begin)>strlen(end)?strlen(begin):strlen(end)));
 
 	if(buf==NULL)
 	{
@@ -36,7 +36,6 @@ int main(int argc, char** argv)
 			{
 				buf[i]=c;
 				c=getchar();
-
 			}
 			ungetc(c, stdin);
 			if(i==strlen(begin))
@@ -71,14 +70,16 @@ int waitfor(char* end)
 	unsigned int i=0;
 	char c;
 
-	while(i!=strlen(end))
+	while(i<strlen(end))
 	{
 		c=getchar();
 
 		if(feof(stdin))
 			return 0;
-		if(end[i]==c)
+		else if(c==end[i])
 			i++;
+		else if(c==end[0])
+			i=1;
 		else
 			i=0;
 	}

@@ -1,11 +1,13 @@
-#change your build of skip
-
 PREFIX=/usr/local
 
 CC=cc
+AR=ar
+RANLIB=ranlib
 
-CFLAGS=-Wall -Wextra -pedantic -O2
+CFLAGS=-Wall -Wextra -std=c89 -pedantic -O2
 LDFLAGS=-s
 
-TARGET=skip
-OBJS=skip.o
+BIN=skip
+OBJ=$(BIN:=.o)
+MAN=$(BIN:=.1)
+CONF=config.mk
