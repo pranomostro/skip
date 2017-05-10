@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 
 	if(argc!=3)
 	{
-		fprintf(stderr, "skip BEGIN END\n");
+		fprintf(stderr, "skip begin end\n");
 		exit(1);
 	}
 
