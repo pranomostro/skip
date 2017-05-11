@@ -1,38 +1,45 @@
-.TH SKIP 1
-.SH NAME
-skip \- skip text between two strings
+.Dd May 11, 2017
+.Dt SKIP 1
+.Os
 
-.SH SYNOPSIS
-skip begin end
+.Sh NAME
+.Nm skip
+.Nd skip the input between two strings
 
-.SH DESCRIPTION
-skip is a filter that skips the parts of the input text between begin
-and end. It reads standard input and writes the standard output and
-does not regard newlines. When finding the end of a file, it stops,
-even if the current position is after a begin.
+.Sh SYNOPSIS
+.Nm
+.Ar begin
+.Ar end
 
-.SH EXAMPLES
-.PP
-.fi
-.RS
-$ skip '<' '>'
-.RE
-.fi
-somewhat strips html from the input.
-.PP
-.fi
-.RS
-$ skip '<script' '</script>'
-.RE
-.fi
-prints the contents of a web-page without the javascript.
+.Sh DESCRIPTION
+.Nm
+is a filter that skips the the parts of its input that are delimited
+by the strings
+.Ar begin
+and
+.Ar end ,
+inclusively. This includes newlines.
 
-.SH STATUS
-0 on success and 1 when it prints the usage.
+.Sh EXAMPLES
+Somewhat strip HTML from the input:
+.Pp
+.Dl $ curl http://www.ozarkia.net/bill/anarchism/library/rg-anarcho-cap.html | skip '<' '>'
+.Pp
+Somewhat strip the javascript from a webpage:
+.Pp
+.Dl $ curl https://en.wikipedia.org/wiki/Main_Page | skip '<script' '</script>'
 
-.SH BUGS
-skip could be a lot more general in what it does. there are plans for another
-utility that will do this.
+.Sh EXIT STATUS
+.Ex -std
 
-.SH AUTHOR
-pranomestro@gmail.com
+.Sh BUGS
+.Nm
+could be a lot more general.
+
+.Sh SEE ALSO
+.Xr curl 1 ,
+.Xr sed 1 ,
+.Xr tr 1 .
+
+.Sh AUTHORS
+.An pranomostro Aq Mt pranomestro@gmail.com
