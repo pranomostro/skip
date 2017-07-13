@@ -4,6 +4,27 @@
 
 int waitfor(char* end);
 
+int waitfor(char* end)
+{
+	unsigned int i=0;
+	char c;
+
+	while(i<strlen(end))
+	{
+		c=getchar();
+
+		if(feof(stdin))
+			return 0;
+		else if(c==end[i])
+			i++;
+		else if(c==end[0])
+			i=1;
+		else
+			i=0;
+	}
+	return 1;
+}
+
 int main(int argc, char** argv)
 {
 	char c;
@@ -63,25 +84,4 @@ int main(int argc, char** argv)
 	free(buf);
 
 	return 0;
-}
-
-int waitfor(char* end)
-{
-	unsigned int i=0;
-	char c;
-
-	while(i<strlen(end))
-	{
-		c=getchar();
-
-		if(feof(stdin))
-			return 0;
-		else if(c==end[i])
-			i++;
-		else if(c==end[0])
-			i=1;
-		else
-			i=0;
-	}
-	return 1;
 }
