@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int waitfor(char* end);
-
 int waitfor(char* end)
 {
 	unsigned int i=0;
